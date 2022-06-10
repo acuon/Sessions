@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         toast("onDestroy")
     }
+
     private fun toast(str: String) {
         Toast.makeText(this, "$str started", Toast.LENGTH_SHORT).show()
     }
