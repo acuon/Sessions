@@ -8,10 +8,10 @@ import dev.acuon.sessions.R
 import dev.acuon.sessions.model.OsVersion
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class OsAdapter(
+class RecyclerViewAdapter(
     private val list: ArrayList<OsVersion>,
     private val clickListener: OsClickListener
-) : RecyclerView.Adapter<OsAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(

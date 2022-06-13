@@ -7,8 +7,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import dev.acuon.sessions.R
-import dev.acuon.sessions.model.OsVersion
-import dev.acuon.sessions.ui.adapter.OsAdapter
 import dev.acuon.sessions.ui.fragments.CustomListViewFragment
 import dev.acuon.sessions.ui.fragments.ListViewFragment
 import dev.acuon.sessions.ui.fragments.RecyclerViewFragment
