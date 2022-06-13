@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/widgets"
+        android:title="@string/widgets"/>
+    <item
+        android:id="@+id/listView"
+        android:title="@string/listview"/>
+    <item
+        android:id="@+id/recyclerView"
+        android:title="@string/recyclerview"/>
+    <item
+        android:id="@+id/customListView"
+        android:title="@string/custom_listview"/>
+
+</menu>
