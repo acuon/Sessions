@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_custom_list_view.xml" value="0.13632246376811594" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_list_view.xml" value="0.20416666666666666" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_recycler_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_widgets.xml" value="0.22" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_custom_list_view.xml" value="0.1" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_list_view.xml" value="0.20416666666666666" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_recycler_view.xml" value="0.19010416666666666" />
