@@ -5,6 +5,7 @@ class OsVersion(
     val version: String,
     val releasedOn: Int,
     val sdk: Int,
-    val description: String
+    val description: String,
+    val symbol: String
 ) {
 }

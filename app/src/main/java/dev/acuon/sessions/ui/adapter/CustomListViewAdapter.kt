@@ -18,6 +18,7 @@ class CustomListViewAdapter(
         val rowView = inflater.inflate(R.layout.item_layout, null, true)
 
         rowView.apply {
+            osSymbol.text = osList[position].symbol
             osName.text = osList[position].name
             osVersion.text = osList[position].version
             osSdk.text = "SDK ${osList[position].sdk}"

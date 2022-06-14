@@ -37,6 +37,7 @@ class RecyclerViewAdapter(
         RecyclerView.ViewHolder(itemView) {
             fun setData(os: OsVersion) {
                 itemView.apply {
+                    osSymbol.text = os.symbol
                     osName.text = os.name
                     osVersion.text = os.version
                     osSdk.text = "SDK ${os.sdk}"
