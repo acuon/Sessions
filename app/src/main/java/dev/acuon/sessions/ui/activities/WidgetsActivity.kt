@@ -26,8 +26,98 @@ class WidgetsActivity : AppCompatActivity() {
     }
 
     private fun clickListener() {
-        entry_chip.setOnCloseIconClickListener {
-            snackBar("entry")
+        //Material Buttons
+        textButton.setOnClickListener {
+            snackBar("Text Button")
+        }
+        outlinedButton.setOnClickListener {
+            snackBar("Outlined Button")
+        }
+        materialButtonRounded.setOnClickListener {
+            snackBar("Rounded Material Button ")
+        }
+        materialButton.setOnClickListener {
+            snackBar("Material Button")
+        }
+        materialButtonWithIcon.setOnClickListener {
+            snackBar("Material Button With Icon")
+        }
+
+        //Toggle Button
+        toggleButton.setOnClickListener {
+            snackBar("Toggle Button")
+        }
+
+        //Chips
+        checkableChip.setOnClickListener {
+            snackBar("Checkable Chip")
+        }
+        strokeChip.setOnClickListener {
+            snackBar("Stroke Chip")
+        }
+        cornerRadiusChip.setOnClickListener {
+            snackBar("Corner Radius Chip")
+        }
+        iconChip.setOnClickListener {
+            snackBar("Icon Chip")
+        }
+        entryChip.setOnClickListener {
+            snackBar("Entry Chip")
+        }
+        entryChip.setOnCloseIconClickListener {
+            snackBar("Entry Chip Close Icon")
+        }
+
+        //switch
+        simpleSwitch.setOnClickListener {
+            snackBar("Switch")
+        }
+
+        //Text Input Layout
+        editText.setOnClickListener {
+            snackBar("Edit Text")
+        }
+
+        //Check Box
+        checkBox1.setOnClickListener {
+            snackBar("Check Box 1")
+        }
+        checkBox2.setOnClickListener {
+            snackBar("Check Box 2")
+        }
+        checkBox3.setOnClickListener {
+            snackBar("Check Box 3")
+        }
+
+        //Radio Buttons
+        radioButton1.setOnClickListener {
+            snackBar("Radio Button 1")
+        }
+        radioButton2.setOnClickListener {
+            snackBar("Radio Button 2")
+        }
+        radioButton3.setOnClickListener {
+            snackBar("Radio Button 3")
+        }
+
+        //Seek Bar
+        simpleSeekBar.setOnClickListener {
+            snackBar("Seek Bar")
+        }
+        simpleSeekBar.setOnTouchListener { _, _ ->
+            snackBar("Seek Bar")
+            false
+        }
+
+        //Progress Bar
+        progressBar.setOnClickListener {
+            snackBar("Progress Bar")
+        }
+
+        //Spinner
+        spinner.setOnTouchListener { _, _ ->
+            snackBar("Spinner")
+            false
         }
     }
 
@@ -51,7 +141,7 @@ class WidgetsActivity : AppCompatActivity() {
                 while (jumpTime < totalProgressTime) {
                     try {
                         sleep(200)
-                        jumpTime += 5
+                        jumpTime += 10
                         progressBar.progress = jumpTime
                     } catch (e: InterruptedException) {
                         e.printStackTrace()

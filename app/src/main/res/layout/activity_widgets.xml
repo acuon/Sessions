@@ -26,17 +26,17 @@
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/contained_button"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/textButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_chip_icon"
-                android:text="Contained Button"
+                android:text="Text Button"
                 android:textAllCaps="false"
                 android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/outlined_button"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/outlinedButton"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,12 +44,31 @@
                 android:textAllCaps="false"
                 android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/text_button"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButtonRounded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Text Button"
+                android:backgroundTint="@color/yellow"
+                android:text="Material Button"
+                app:cornerRadius="50dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/yellow"
+                android:text="Material Button"
+                android:textAllCaps="false"
+                android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButtonWithIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/yellow"
+                android:drawableLeft="@drawable/ic_chip_icon"
+                android:drawableTint="@color/white"
+                android:text="Material Button"
                 android:textAllCaps="false"
                 android:textSize="15sp" />
 
@@ -82,14 +101,14 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/check_chip"
+                    android:id="@+id/checkableChip"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Checkable" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/stroke_chip"
+                    android:id="@+id/strokeChip"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,7 +117,7 @@
                     app:chipStrokeWidth="1dp" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/corner_radius_chip"
+                    android:id="@+id/cornerRadiusChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -113,7 +132,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/icon_chip"
+                    android:id="@+id/iconChip"
                     style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -121,7 +140,7 @@
                     app:chipIcon="@drawable/ic_chip_icon" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/entry_chip"
+                    android:id="@+id/entryChip"
                     style="@style/Widget.MaterialComponents.Chip.Entry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -139,7 +158,8 @@
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/simpleSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="switch" />
@@ -161,7 +181,7 @@
                 android:hint="Edit Text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_text"
+                    android:id="@+id/editText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent" />
@@ -178,7 +198,7 @@
                 android:textSize="20sp" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkBox31"
+                android:id="@+id/checkBox1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CheckBox 1" />
@@ -237,16 +257,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:text="Radio Group and Radio Buttons"
+                android:text="Seek Bar"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
-            <SeekBar
+            <com.google.android.material.slider.Slider
                 android:id="@+id/simpleSeekBar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="30" />
+                android:progress="30"
+                android:stepSize="1.0"
+                android:valueFrom="0.0"
+                android:valueTo="100.0" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -277,7 +299,8 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
 
         </LinearLayout>
 
