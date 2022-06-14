@@ -8,8 +8,7 @@ object Constants {
     const val RECYCLER_VIEW = "RecyclerView"
     const val CUSTOM_LISTVIEW = "Custom ListView"
 
-    fun dummyData(): ArrayList<OsVersion> {
-        val osList = ArrayList<OsVersion>()
+    fun dummyData(): Array<OsVersion> {
         val angelCake = OsVersion(
             "AngelCake",
             "Version 1.0",
@@ -142,26 +141,23 @@ object Constants {
 //                )
 //            )
 //        }
-        osList.addAll(
-            arrayOf(
-                angelCake,
-                battenBerg,
-                cupcake,
-                donut,
-                eclair,
-                froyo,
-                gingerBread,
-                honeyComb,
-                iceCreamSandwich,
-                jellyBean,
-                kitkat,
-                lollipop,
-                marshmallow,
-                nougat,
-                oreo
-            )
+        return arrayOf(
+            angelCake,
+            battenBerg,
+            cupcake,
+            donut,
+            eclair,
+            froyo,
+            gingerBread,
+            honeyComb,
+            iceCreamSandwich,
+            jellyBean,
+            kitkat,
+            lollipop,
+            marshmallow,
+            nougat,
+            oreo
         )
-        return osList
     }
 
     val osNames = arrayListOf(

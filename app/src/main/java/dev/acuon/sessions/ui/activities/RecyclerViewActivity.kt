@@ -34,7 +34,7 @@ class RecyclerViewActivity : AppCompatActivity(), OsClickListener {
     private fun initialize() {
         supportActionBar?.title = Constants.RECYCLER_VIEW
         osList = ArrayList()
-        osList = Constants.dummyData()
+        osList.addAll(Constants.dummyData())
         recyclerViewAdapter = RecyclerViewAdapter(osList, this)
     }
 

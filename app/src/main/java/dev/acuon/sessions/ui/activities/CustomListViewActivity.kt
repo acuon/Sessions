@@ -29,7 +29,7 @@ class CustomListViewActivity : AppCompatActivity() {
     private fun initialize() {
         supportActionBar?.title = Constants.CUSTOM_LISTVIEW
         osList = ArrayList()
-        osList = Constants.dummyData()
+        osList.addAll(Constants.dummyData())
         customListViewAdapter = CustomListViewAdapter(this, osList)
         customListView.adapter = customListViewAdapter
     }
