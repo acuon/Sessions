@@ -1,4 +1,4 @@
-package dev.acuon.sessions
+package dev.acuon.sessions.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
