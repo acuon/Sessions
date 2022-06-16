@@ -144,10 +144,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun singleChoiceDialog() {
         val dialogBuilder = AlertDialog.Builder(this)
+        val checkedItem = arrayOf(-1)
         dialogBuilder
             .setCancelable(false)
-            .setSingleChoiceItems(Constants.OPTIONS_ARRAY, -1) { dialogInterface, i ->
-                toast("${Constants.OPTIONS_ARRAY[i]} selected")
+            .setSingleChoiceItems(Constants.OPTIONS_ARRAY, checkedItem[0]) { _, i ->
+                checkedItem[0] = i
+            }
+            .setPositiveButton("Ok") { dialogInterface, _ ->
+                toast("${Constants.OPTIONS_ARRAY[checkedItem[0]]} selected")
                 dialogInterface.dismiss()
             }
             .setNeutralButton("Cancel") { _, _ ->
