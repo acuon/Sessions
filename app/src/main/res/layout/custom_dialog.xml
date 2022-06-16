@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:paddingBottom="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/rename_file"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15dp"
+        android:src="@drawable/ic_baseline_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@color/light_grey"
+        app:layout_constraintTop_toBottomOf="@id/ivClose" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/file_name"
+        android:textColorHint="@color/black"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="@dimen/_0dp"
+        app:hintTextColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/guideline">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8dp"
+            android:background="@drawable/edit_text_bg"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="10dp"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textField" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

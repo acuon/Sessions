@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Sessions</string>
+    <string name="file_name">File Name</string>
+    <string name="rename_file">Rename File</string>
+    <string name="save">Save</string>
+    <string name="loading">Loading...</string>
+    <string name="simple_dialog">Simple Dialog</string>
+    <string name="dialog_with_buttons">Dialog With Buttons</string>
+    <string name="single_choice_dialog">Single Choice Dialog</string>
+    <string name="multi_choice_dialog">Multi Choice Dialog</string>
+    <string name="circular_progress_dialog">Circular Progress Dialog</string>
+    <string name="custom_dialog">Custom Dialog</string>
+    <string name="bottom_dialog">Bottom Dialog</string>
+    <string name="time_picker_dialog">Time Picker Dialog</string>
+    <string name="date_picker_dialog">Date Picker Dialog</string>
+    <string name="this_is_bottom_dialog">This is bottom dialog</string>
+    <string name="cancel">Cancel</string>
 </resources>

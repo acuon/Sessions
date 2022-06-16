@@ -25,4 +25,9 @@ object Constants {
     fun getRandomColor(): Int {
         return Int.randomColor()
     }
+
+
+    val OPTIONS_ARRAY = arrayOf("Option 1", "Option 2", "Option 3")
+    val COLORS_ARRAY = arrayOf("Black", "Orange", "Green", "Yellow", "White", "Purple")
+    val CHECKED_COLORS_ARRAY = booleanArrayOf(false, false, false, false, false, false)
 }

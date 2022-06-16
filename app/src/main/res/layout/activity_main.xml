@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayoutCoordinator"
@@ -7,95 +7,90 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/simpleDialog"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_15dp"
+            android:text="@string/simple_dialog"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/simpleDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="Simple Dialog"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/simpleDialogWithButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/dialog_with_buttons"
+            app:layout_constraintTop_toBottomOf="@id/simpleDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/simpleDialogWithButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Dialog With Buttons"
-                app:layout_constraintTop_toBottomOf="@id/simpleDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/singleChoiceDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/single_choice_dialog"
+            app:layout_constraintTop_toBottomOf="@id/simpleDialogWithButton" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/singleChoiceDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Single Choice Dialog"
-                app:layout_constraintTop_toBottomOf="@id/simpleDialogWithButton" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/multiChoiceDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/multi_choice_dialog"
+            app:layout_constraintTop_toBottomOf="@id/singleChoiceDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/multiChoiceDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Multi Choice Dialog"
-                app:layout_constraintTop_toBottomOf="@id/singleChoiceDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/circularProgressDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/circular_progress_dialog"
+            app:layout_constraintTop_toBottomOf="@id/multiChoiceDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/circularProgressDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Circular Progress Dialog"
-                app:layout_constraintTop_toBottomOf="@id/multiChoiceDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/datePickerDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/date_picker_dialog"
+            app:layout_constraintTop_toBottomOf="@id/circularProgressDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/datePickerDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Date Picker Dialog"
-                app:layout_constraintTop_toBottomOf="@id/circularProgressDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/timePickerDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/time_picker_dialog"
+            app:layout_constraintTop_toBottomOf="@id/datePickerDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/timePickerDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Time Picker Dialog"
-                app:layout_constraintTop_toBottomOf="@id/datePickerDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bottomDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/bottom_dialog"
+            app:layout_constraintTop_toBottomOf="@id/timePickerDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/bottomDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Bottom Dialog"
-                app:layout_constraintTop_toBottomOf="@id/timePickerDialog" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/customDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:padding="@dimen/_15dp"
+            android:text="@string/custom_dialog"
+            app:layout_constraintTop_toBottomOf="@id/bottomDialog" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/customDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="Custom Dialog"
-                app:layout_constraintTop_toBottomOf="@id/bottomDialog" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
