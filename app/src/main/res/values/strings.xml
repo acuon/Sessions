@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sessions</string>
+    <string name="releasedate">ReleaseDate</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
 </resources>
