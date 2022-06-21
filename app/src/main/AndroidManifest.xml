@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sessions">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.activities.FragmentSampleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activities.AuthActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
