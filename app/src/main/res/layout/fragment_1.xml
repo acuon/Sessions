@@ -11,7 +11,7 @@
         android:id="@+id/fragmentOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment One"
+        android:text="@string/fragment_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,14 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20dp"
-        android:hint="Enter Something"
+        android:hint="@string/enter_something"
         app:layout_constraintTop_toBottomOf="@id/fragmentOne" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sendToFragmentTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send to fragment two"
+        android:text="@string/send_to_fragment_two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

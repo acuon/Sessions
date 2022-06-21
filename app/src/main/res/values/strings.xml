@@ -6,4 +6,15 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login_here">Login here</string>
     <string name="username_password_error">The Username or Password that you\'ve entered is incorrect.</string>
+    <string name="login">Login</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="fragment_two">Fragment Two</string>
+    <string name="enter_something">Enter Something</string>
+    <string name="send_to_fragment_one">Send to fragment one</string>
+    <string name="fragment_one">Fragment One</string>
+    <string name="send_to_fragment_two">Send to fragment two</string>
 </resources>

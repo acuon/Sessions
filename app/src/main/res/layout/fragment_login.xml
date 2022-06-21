@@ -27,10 +27,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15dp"
+                android:layout_marginStart="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_30dp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_30sp"
                 android:textStyle="bold" />
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:textColor="@color/black" />
 
             <EditText
@@ -49,6 +49,7 @@
                 android:layout_height="@dimen/_50dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg"
+                android:inputType="textPersonName"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_20dp"
                 android:textColor="@color/black"
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:text="Password"
+                android:text="@string/password"
                 android:textColor="@color/black" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,13 +76,13 @@
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/_20dp"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/_15sp" />
 
                 <ImageView
                     android:id="@+id/showHideButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_marginEnd="@dimen/_20dp"
                     android:src="@drawable/hide_password"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="@dimen/_10dp"
-                android:text="Forget Password?" />
+                android:text="@string/forget_password" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginButton"
@@ -104,7 +105,7 @@
                 android:layout_marginBottom="@dimen/_30dp"
                 android:backgroundTint="@color/app_background_color"
                 android:padding="@dimen/_15dp"
-                android:text="Login"
+                android:text="@string/login"
                 app:cornerRadius="@dimen/_50dp" />
 
         </LinearLayout>
@@ -131,7 +132,7 @@
             android:id="@+id/toSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_5dp"
+            android:layout_marginStart="@dimen/_5dp"
             android:text="@string/sign_up_here"
             android:textColor="@color/app_background_color"
             android:textSize="@dimen/_20sp"

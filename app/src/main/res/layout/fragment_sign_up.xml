@@ -27,10 +27,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15dp"
+                android:layout_marginStart="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_30dp"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_30sp"
                 android:textStyle="bold" />
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:textColor="@color/black" />
 
             <EditText
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:text="Password"
+                android:text="@string/password"
                 android:textColor="@color/black" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +81,7 @@
                     android:id="@+id/showHideButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_marginEnd="@dimen/_20dp"
                     android:src="@drawable/hide_password"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:text="Confirm Password"
+                android:text="@string/confirm_password"
                 android:textColor="@color/black" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,7 +115,7 @@
                     android:id="@+id/showHideButtonConfirmPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_marginEnd="@dimen/_20dp"
                     android:src="@drawable/hide_password"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -141,7 +141,7 @@
                 android:layout_marginTop="@dimen/_40dp"
                 android:backgroundTint="@color/app_background_color"
                 android:padding="@dimen/_15dp"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 app:cornerRadius="@dimen/_50dp" />
 
         </LinearLayout>
@@ -156,24 +156,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardViewLogin">
 
-    <TextView
-        android:id="@+id/alreadyHaveAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/already_have_an_account"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/alreadyHaveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_an_account"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/toLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_here"
-        android:layout_marginLeft="@dimen/_5dp"
-        android:textColor="@color/app_background_color"
-        android:textSize="@dimen/_20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/toLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5dp"
+            android:text="@string/login_here"
+            android:textColor="@color/app_background_color"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
