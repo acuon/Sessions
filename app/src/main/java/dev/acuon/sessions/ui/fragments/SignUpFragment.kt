@@ -13,12 +13,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
-import dev.acuon.sessions.Constants
+import dev.acuon.sessions.utils.Constants
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.FragmentSignUpBinding
 import dev.acuon.sessions.listeners.ClickListener
 import dev.acuon.sessions.ui.activities.FragmentSampleActivity
+import dev.acuon.sessions.utils.Constants.PASSWORDS_DO_NOT_MATCH
+import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_USERNAME
+import dev.acuon.sessions.utils.Constants.SIGN_UP_SUCCESSFUL
+import dev.acuon.sessions.utils.Constants.USER_ALREADY_EXISTS
 
 class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding
@@ -61,7 +64,7 @@ class SignUpFragment : Fragment() {
                     saveToSharedPreference(userName, password)
                     val intent = Intent(requireContext(), FragmentSampleActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(requireContext(), "Signed Up Successfully", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), SIGN_UP_SUCCESSFUL, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -119,14 +122,14 @@ class SignUpFragment : Fragment() {
         binding.apply {
             etConfirmPassword.doAfterTextChanged {
                 if (etPassword.text.toString() != etConfirmPassword.text.toString()) {
-                    setError("Passwords do not match")
+                    setError(PASSWORDS_DO_NOT_MATCH)
                 } else {
                     error.visibility = View.INVISIBLE
                 }
             }
             etPassword.doAfterTextChanged {
                 if (etConfirmPassword.text!!.isNotEmpty() && etPassword.text.toString() != etConfirmPassword.text.toString()) {
-                    setError("Passwords do not match")
+                    setError(PASSWORDS_DO_NOT_MATCH)
                 } else {
                     error.visibility = View.INVISIBLE
                 }
@@ -137,15 +140,15 @@ class SignUpFragment : Fragment() {
     private fun credentialsCheck(): Boolean {
         binding.apply {
             if (etName.text.toString().isEmpty()) {
-                clickListener.makeSnackBar("Please Enter User name")
+                clickListener.makeSnackBar(PLEASE_ENTER_USERNAME)
                 return false
             }
             if (sharedPreferences.all.containsKey(etName.text.toString())) {
-                clickListener.makeSnackBar("User already exists")
+                clickListener.makeSnackBar(USER_ALREADY_EXISTS)
                 return false
             }
             if (etConfirmPassword.text.toString() != etPassword.text.toString()) {
-                clickListener.makeSnackBar("Passwords do not match")
+                clickListener.makeSnackBar(PASSWORDS_DO_NOT_MATCH)
                 return false
             }
         }

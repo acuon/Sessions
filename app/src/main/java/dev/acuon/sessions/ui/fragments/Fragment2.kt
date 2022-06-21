@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dev.acuon.sessions.Constants
-import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.Fragment2Binding
 import dev.acuon.sessions.viewmodel.SimpleViewModel
 

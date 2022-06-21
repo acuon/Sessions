@@ -10,14 +10,12 @@ class SimpleViewModel : ViewModel() {
 
     val messageForFragmentTwo: LiveData<String>
         get() = message1to2
-
     val messageForFragmentOne: LiveData<String>
         get() = message2to1
 
     fun fragmentOneToTwo(text: String) {
         message1to2.value = text
     }
-
     fun fragmentTwoToOne(text: String) {
         message2to1.value = text
     }

@@ -8,6 +8,7 @@ import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.ActivityAuthBinding
 import dev.acuon.sessions.listeners.ClickListener
 import dev.acuon.sessions.ui.fragments.LoginFragment
+import dev.acuon.sessions.utils.Constants.FRAGMENT_LOGIN_TAG
 
 class AuthActivity : AppCompatActivity(), ClickListener {
     private lateinit var binding: ActivityAuthBinding
@@ -26,7 +27,7 @@ class AuthActivity : AppCompatActivity(), ClickListener {
                 R.id.frameLayoutForFragment,
                 fragment
             )
-            .addToBackStack("login")
+            .addToBackStack(FRAGMENT_LOGIN_TAG)
             .commit()
     }
 

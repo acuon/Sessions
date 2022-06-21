@@ -18,11 +18,11 @@ class FragmentSampleActivity : AppCompatActivity() {
         openFragment(Fragment1(), R.id.frameLayout1)
         openFragment(Fragment2(), R.id.frameLayout2)
     }
+
     private fun openFragment(fragment: Fragment, container: Int) {
-        supportFragmentManager.beginTransaction().replace(
-            container,
-            fragment
-        ).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(container, fragment)
+            .commit()
     }
 
 }

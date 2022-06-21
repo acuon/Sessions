@@ -9,13 +9,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
-import dev.acuon.sessions.Constants
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.FragmentLoginBinding
 import dev.acuon.sessions.listeners.ClickListener
 import dev.acuon.sessions.ui.activities.FragmentSampleActivity
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
+import dev.acuon.sessions.utils.Constants.FRAGMENT_SIGN_UP_TAG
+import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_USERNAME
+import dev.acuon.sessions.utils.Constants.SHARED_PREFERENCE_KEY
+import dev.acuon.sessions.utils.Constants.USER_NOT_REGISTERED
+import dev.acuon.sessions.utils.Constants.WRONG_PASSWORD
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -39,8 +43,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedPreferences = activity?.applicationContext!!.getSharedPreferences(
-            Constants.SHARED_PREFERENCE_KEY,
-            AppCompatActivity.MODE_PRIVATE
+            SHARED_PREFERENCE_KEY,
+            MODE_PRIVATE
         )
         passwordShowHide()
         binding.apply {
@@ -51,7 +55,7 @@ class LoginFragment : Fragment() {
                 }
             }
             loginButton.setOnClickListener {
-                if(checkCredentials()) {
+                if (checkCredentials()) {
                     checkLoginInfo(etName.text.toString(), etPassword.text.toString()).let {
                         if (it) {
                             loginThroughSharedPref(
@@ -59,7 +63,7 @@ class LoginFragment : Fragment() {
                                 etPassword.text.toString()
                             )
                         } else {
-                            clickListener.makeSnackBar("User doesn't exist, Please Register")
+                            clickListener.makeSnackBar(USER_NOT_REGISTERED)
                         }
                     }
                 }
@@ -93,8 +97,8 @@ class LoginFragment : Fragment() {
 
     private fun checkCredentials(): Boolean {
         binding.apply {
-            if(etName.text.toString().isEmpty()) {
-                clickListener.makeSnackBar("Please enter Username")
+            if (etName.text.toString().isEmpty()) {
+                clickListener.makeSnackBar(PLEASE_ENTER_USERNAME)
                 return false
             }
         }
@@ -108,10 +112,10 @@ class LoginFragment : Fragment() {
                     val intent = Intent(requireContext(), FragmentSampleActivity::class.java)
                     startActivity(intent)
                 } else {
-                    clickListener.makeSnackBar("Wrong Password")
+                    clickListener.makeSnackBar(WRONG_PASSWORD)
                 }
             } else {
-                clickListener.makeSnackBar("User not registered")
+                clickListener.makeSnackBar(USER_NOT_REGISTERED)
             }
         }
     }
@@ -126,7 +130,7 @@ class LoginFragment : Fragment() {
             ).add(
                 R.id.frameLayoutForFragment,
                 fragment
-            ).addToBackStack("signup")
+            ).addToBackStack(FRAGMENT_SIGN_UP_TAG)
             .commit()
     }
 }
