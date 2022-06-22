@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.FragmentLoginBinding
@@ -16,6 +17,8 @@ import dev.acuon.sessions.listeners.ClickListener
 import dev.acuon.sessions.ui.activities.FragmentSampleActivity
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import dev.acuon.sessions.utils.Constants.FRAGMENT_SIGN_UP_TAG
+import dev.acuon.sessions.utils.Constants.LOGIN_SUCCESSFUL
+import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_PASSWORD
 import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_USERNAME
 import dev.acuon.sessions.utils.Constants.SHARED_PREFERENCE_KEY
 import dev.acuon.sessions.utils.Constants.USER_NOT_REGISTERED
@@ -92,13 +95,16 @@ class LoginFragment : Fragment() {
     }
 
     private fun checkLoginInfo(userName: String, password: String): Boolean {
-        return sharedPreferences.all[userName] == password
+        return sharedPreferences.all.containsKey(userName)
     }
 
     private fun checkCredentials(): Boolean {
         binding.apply {
             if (etName.text.toString().isEmpty()) {
                 clickListener.makeSnackBar(PLEASE_ENTER_USERNAME)
+                return false
+            } else if(etPassword.text.toString().isEmpty()) {
+                clickListener.makeSnackBar(PLEASE_ENTER_PASSWORD)
                 return false
             }
         }
@@ -111,6 +117,7 @@ class LoginFragment : Fragment() {
                 if (this[userName] == password) {
                     val intent = Intent(requireContext(), FragmentSampleActivity::class.java)
                     startActivity(intent)
+                    Toast.makeText(requireContext(), LOGIN_SUCCESSFUL, Toast.LENGTH_SHORT).show()
                 } else {
                     clickListener.makeSnackBar(WRONG_PASSWORD)
                 }

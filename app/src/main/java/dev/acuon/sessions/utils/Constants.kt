@@ -9,5 +9,7 @@ object Constants {
     const val PLEASE_ENTER_USERNAME = "Please enter Username"
     const val USER_ALREADY_EXISTS = "User already exists"
     const val PASSWORDS_DO_NOT_MATCH = "Passwords do not match"
-    const val SIGN_UP_SUCCESSFUL = "Sign Up Successfully"
+    const val SIGN_UP_SUCCESSFUL = "Sign Up Successful"
+    const val LOGIN_SUCCESSFUL = "Login Successful"
+    const val PLEASE_ENTER_PASSWORD = "Please enter password"
 }
