@@ -17,4 +17,10 @@
     <string name="send_to_fragment_one">Send to fragment one</string>
     <string name="fragment_one">Fragment One</string>
     <string name="send_to_fragment_two">Send to fragment two</string>
+    <string name="send_to_fragment_three">Send to fragment three</string>
+    <string name="finish">Finish</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_name">Enter Username</string>
 </resources>

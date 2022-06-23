@@ -10,30 +10,17 @@ import dev.acuon.sessions.listeners.ClickListener
 import dev.acuon.sessions.ui.fragments.LoginFragment
 import dev.acuon.sessions.utils.Constants.FRAGMENT_LOGIN_TAG
 
-class AuthActivity : AppCompatActivity(), ClickListener {
+class AuthNavigationActivity : AppCompatActivity(), ClickListener {
     private lateinit var binding: ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        openFragment(LoginFragment())
     }
-
-    private fun openFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .add(
-                R.id.frameLayoutForFragment,
-                fragment
-            )
-            .addToBackStack(FRAGMENT_LOGIN_TAG)
-            .commit()
-    }
-
     override fun onBackPressed() {
         val fragment: Fragment =
-            supportFragmentManager.findFragmentById(R.id.frameLayoutForFragment)!!
+            supportFragmentManager.findFragmentById(R.id.containerForFragment)!!
         if (fragment is LoginFragment) {
             this.finish()
         } else {

@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sessions">
         <activity
-            android:name=".ui.activities.FragmentSampleActivity"
+            android:name=".ui.activities.BottomNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.PracticeNavigationActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.activities.AuthActivity"
+            android:name=".ui.activities.AuthNavigationActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

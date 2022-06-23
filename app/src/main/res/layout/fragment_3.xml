@@ -5,29 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/_10dp"
-    tools:context=".ui.fragments.Fragment1">
+    tools:context=".ui.fragments.Fragment3">
 
-    <EditText
-        android:id="@+id/fragmentOneEditText"
+    <TextView
+        android:id="@+id/fragmentOneData"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_50dp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="@string/enter_name"
         android:paddingHorizontal="@dimen/_20dp"
+        android:text="@string/fragment_one"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="@dimen/_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/fragmentTwoData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:paddingHorizontal="@dimen/_20dp"
+        android:text="@string/fragment_two"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentOneData" />
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sendToFragmentTwo"
+        android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/app_background_color"
-        android:text="@string/send_to_fragment_two"
+        android:text="@string/finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragmentOneEditText" />
+        app:layout_constraintTop_toBottomOf="@id/fragmentTwoData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,11 +13,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.navOptions
 import dev.acuon.sessions.utils.Constants
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.FragmentSignUpBinding
 import dev.acuon.sessions.listeners.ClickListener
-import dev.acuon.sessions.ui.activities.FragmentSampleActivity
+import dev.acuon.sessions.ui.activities.BottomNavigationActivity
 import dev.acuon.sessions.utils.Constants.PASSWORDS_DO_NOT_MATCH
 import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_USERNAME
 import dev.acuon.sessions.utils.Constants.SIGN_UP_SUCCESSFUL
@@ -28,6 +31,7 @@ class SignUpFragment : Fragment() {
     private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var clickListener: ClickListener
+    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +49,7 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         sharedPreferences = activity?.applicationContext!!.getSharedPreferences(
             Constants.SHARED_PREFERENCE_KEY,
             AppCompatActivity.MODE_PRIVATE
@@ -54,7 +59,7 @@ class SignUpFragment : Fragment() {
         binding.apply {
             toLogin.let {
                 it.setOnClickListener {
-                    openFragment(SignUpFragment())
+                    toLoginFragment()
                 }
             }
             signUpButton.setOnClickListener {
@@ -62,13 +67,27 @@ class SignUpFragment : Fragment() {
                     val userName = etName.text.toString()
                     val password = etPassword.text.toString()
                     saveToSharedPreference(userName, password)
-                    val intent = Intent(requireContext(), FragmentSampleActivity::class.java)
+                    val intent = Intent(requireContext(), BottomNavigationActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(requireContext(), SIGN_UP_SUCCESSFUL, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
         }
+    }
+
+    private fun toLoginFragment() {
+        navController.navigate(
+            R.id.loginFragment,
+            null,
+            navOptions {
+                anim {
+                    enter = android.R.animator.fade_in
+                    exit = android.R.animator.fade_out
+                }
+            }
+        )
+        navController.popBackStack(R.id.signUpFragment, true)
     }
 
     private fun passwordShowHide() {
@@ -160,19 +179,5 @@ class SignUpFragment : Fragment() {
             visibility = View.VISIBLE
             text = str
         }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        val manager = activity?.supportFragmentManager
-        val transaction = manager!!.beginTransaction()
-        transaction.setCustomAnimations(
-            R.anim.slide_in,
-            R.anim.fade_out,
-            R.anim.fade_in,
-            R.anim.slide_out
-        )
-        transaction.remove(fragment)
-        transaction.commit()
-        manager.popBackStack()
     }
 }

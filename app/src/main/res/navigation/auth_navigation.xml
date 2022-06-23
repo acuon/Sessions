@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="dev.acuon.sessions.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        app:popUpTo="@id/signUpFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="dev.acuon.sessions.ui.fragments.SignUpFragment"
+        android:label="fragment_sign_up"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_sign_up" />
+</navigation>

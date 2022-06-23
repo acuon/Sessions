@@ -14,8 +14,12 @@ import androidx.fragment.app.FragmentActivity
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.FragmentLoginBinding
 import dev.acuon.sessions.listeners.ClickListener
-import dev.acuon.sessions.ui.activities.FragmentSampleActivity
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.navOptions
+import dev.acuon.sessions.ui.activities.BottomNavigationActivity
+import dev.acuon.sessions.ui.activities.PracticeNavigationActivity
 import dev.acuon.sessions.utils.Constants.FRAGMENT_SIGN_UP_TAG
 import dev.acuon.sessions.utils.Constants.LOGIN_SUCCESSFUL
 import dev.acuon.sessions.utils.Constants.PLEASE_ENTER_PASSWORD
@@ -28,6 +32,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var clickListener: ClickListener
+    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +50,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         sharedPreferences = activity?.applicationContext!!.getSharedPreferences(
             SHARED_PREFERENCE_KEY,
             MODE_PRIVATE
@@ -54,8 +60,13 @@ class LoginFragment : Fragment() {
             etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
             toSignUp.let {
                 it.setOnClickListener {
-                    openFragment(SignUpFragment())
+                    toSignUpFragment()
                 }
+            }
+            loginButton.setOnLongClickListener {
+                val intent = Intent(requireContext(), PracticeNavigationActivity::class.java)
+                startActivity(intent)
+                true
             }
             loginButton.setOnClickListener {
                 if (checkCredentials()) {
@@ -72,6 +83,20 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun toSignUpFragment() {
+        navController.navigate(
+            R.id.signUpFragment,
+            null,
+            navOptions {
+                anim {
+                    enter = android.R.animator.fade_in
+                    exit = android.R.animator.fade_out
+                }
+            }
+        )
+        navController.popBackStack(R.id.loginFragment, true)
     }
 
     private fun passwordShowHide() {
@@ -103,7 +128,7 @@ class LoginFragment : Fragment() {
             if (etName.text.toString().isEmpty()) {
                 clickListener.makeSnackBar(PLEASE_ENTER_USERNAME)
                 return false
-            } else if(etPassword.text.toString().isEmpty()) {
+            } else if (etPassword.text.toString().isEmpty()) {
                 clickListener.makeSnackBar(PLEASE_ENTER_PASSWORD)
                 return false
             }
@@ -115,7 +140,7 @@ class LoginFragment : Fragment() {
         with(sharedPreferences.all) {
             if (this.containsKey(userName)) {
                 if (this[userName] == password) {
-                    val intent = Intent(requireContext(), FragmentSampleActivity::class.java)
+                    val intent = Intent(requireContext(), BottomNavigationActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(requireContext(), LOGIN_SUCCESSFUL, Toast.LENGTH_SHORT).show()
                 } else {
@@ -125,19 +150,5 @@ class LoginFragment : Fragment() {
                 clickListener.makeSnackBar(USER_NOT_REGISTERED)
             }
         }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        activity?.supportFragmentManager!!.beginTransaction()
-            .setCustomAnimations(
-                R.anim.slide_in,
-                R.anim.fade_out,
-                R.anim.fade_in,
-                R.anim.slide_out
-            ).add(
-                R.id.frameLayoutForFragment,
-                fragment
-            ).addToBackStack(FRAGMENT_SIGN_UP_TAG)
-            .commit()
     }
 }
