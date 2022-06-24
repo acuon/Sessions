@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sessions</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tablayout_without_viewpager">TabLayout Without Viewpager</string>
+    <string name="viewpager2_slider_activity">Viewpager2 Slider Activity</string>
+    <string name="tablayout_with_viewpager">TabLayout With Viewpager</string>
 </resources>

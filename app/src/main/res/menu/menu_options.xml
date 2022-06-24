@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tabLayoutWithoutViewpager"
+        android:title="@string/tablayout_without_viewpager" />
+    <item
+        android:id="@+id/viewpager2SliderActivity"
+        android:title="@string/viewpager2_slider_activity" />
+    <item
+        android:id="@+id/tabLayoutWithViewpager"
+        android:title="@string/tablayout_with_viewpager" />
+</menu>
