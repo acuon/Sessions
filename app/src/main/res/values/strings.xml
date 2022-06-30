@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Sessions</string>
-    <!--    <string name="api_key">AIzaSyDpVcJ2ABh-ZyeIgWNml1_vrGRvksNbP7k</string>-->
-    <string name="api_key">AIzaSyAeaVeLwWtrd9-IujDCxL2YriOzBJoP2TE</string>
     <string name="action_map_activity">Map Activity</string>
     <string name="action_image_activity">Image Activity</string>
 </resources>

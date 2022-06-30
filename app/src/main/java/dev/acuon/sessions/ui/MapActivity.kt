@@ -35,6 +35,7 @@ import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import dev.acuon.sessions.databinding.ActivityMapBinding
 import android.widget.PopupMenu
+import dev.acuon.sessions.BuildConfig
 import dev.acuon.sessions.utils.ActivityUtils
 import dev.acuon.sessions.utils.Constants
 
@@ -66,7 +67,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        Places.initialize(applicationContext, getString(R.string.api_key))
+        Places.initialize(applicationContext, BuildConfig.API_KEY)
         binding.apply {
             editText.apply {
                 isFocusable = false
