@@ -26,11 +26,16 @@ import com.karumi.dexter.listener.single.PermissionListener
 import dev.acuon.sessions.R
 import dev.acuon.sessions.databinding.ActivityImageBinding
 import dev.acuon.sessions.utils.ActivityUtils
+import dev.acuon.sessions.utils.Constants
 
 class ImageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImageBinding
-    private val CAMERA_REQUEST_CODE = 1
-    private val GALLERY_REQUEST_CODE = 2
+
+    companion object {
+        private const val CAMERA_REQUEST_CODE = 1
+        private const val GALLERY_REQUEST_CODE = 2
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityImageBinding.inflate(layoutInflater)
@@ -50,8 +55,8 @@ class ImageActivity : AppCompatActivity() {
                 val pictureDialog = AlertDialog.Builder(this@ImageActivity)
                 pictureDialog.setTitle("Select Action")
                 val pictureDialogItem = arrayOf(
-                    "Select photo from Gallery",
-                    "Capture photo from Camera"
+                    Constants.FROM_GALLERY,
+                    Constants.FROM_CAMERA
                 )
                 pictureDialog.setItems(pictureDialogItem) { dialog, which ->
                     when (which) {
@@ -85,7 +90,7 @@ class ImageActivity : AppCompatActivity() {
             override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
                 Toast.makeText(
                     this@ImageActivity,
-                    "You have denied the storage permission to select image",
+                    Constants.STORAGE_PERMISSION_DENIED,
                     Toast.LENGTH_SHORT
                 ).show()
                 showRotationalDialogForPermission()
@@ -101,7 +106,7 @@ class ImageActivity : AppCompatActivity() {
 
     private fun gallery() {
         val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
+        intent.type = Constants.IMAGE_TYPE
         startActivityForResult(intent, GALLERY_REQUEST_CODE)
     }
 
@@ -145,7 +150,7 @@ class ImageActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 CAMERA_REQUEST_CODE -> {
-                    val bitmap = data?.extras?.get("data") as Bitmap
+                    val bitmap = data?.extras?.get(Constants.DATA) as Bitmap
                     //we are using coroutine image loader (coil)
                     binding.imageView.load(bitmap) {
                         crossfade(true)
@@ -170,13 +175,12 @@ class ImageActivity : AppCompatActivity() {
     private fun showRotationalDialogForPermission() {
         AlertDialog.Builder(this)
             .setMessage(
-                "It looks like you have turned off permissions"
-                        + "required for this feature. It can be enable under App settings!!!"
+                Constants.PERMISSION_DENIED_MESSAGE
             )
             .setPositiveButton("Go TO SETTINGS") { _, _ ->
                 try {
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", packageName, null)
+                    val uri = Uri.fromParts(Constants.PACKAGE, packageName, null)
                     intent.data = uri
                     startActivity(intent)
 

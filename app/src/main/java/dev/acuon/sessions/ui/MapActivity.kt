@@ -34,15 +34,14 @@ import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import dev.acuon.sessions.databinding.ActivityMapBinding
-import dev.acuon.sessions.databinding.SearchLayoutBinding
 import android.widget.PopupMenu
 import dev.acuon.sessions.utils.ActivityUtils
+import dev.acuon.sessions.utils.Constants
 
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapBinding
-    private lateinit var searchLayoutBinding: SearchLayoutBinding
     private var defaultLocation: LatLng? = null
     private var currentLocation: LatLng? = null
 
@@ -51,8 +50,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
-        searchLayoutBinding =
-            SearchLayoutBinding.bind(layoutInflater.inflate(R.layout.search_layout, null))
         setContentView(binding.root)
         setUpMap()
 
@@ -69,8 +66,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        Places.initialize(applicationContext, "AIzaSyDpVcJ2ABh-ZyeIgWNml1_vrGRvksNbP7k")
-        searchLayoutBinding.apply {
+        Places.initialize(applicationContext, getString(R.string.api_key))
+        binding.apply {
             editText.apply {
                 isFocusable = false
                 setOnClickListener {
@@ -121,7 +118,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         } else if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
                 val place = Autocomplete.getPlaceFromIntent(data)
-                searchLayoutBinding.apply {
+                binding.apply {
                     editText.setText(place.address)
 //                    tv1.text = String.format("Locality name : %s", place.name)
 //                    tv2.text = "${place.latLng}"
@@ -179,7 +176,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         result.addOnCompleteListener(OnCompleteListener<LocationSettingsResponse?> { task ->
             try {
                 val response = task.getResult(ApiException::class.java)
-                Toast.makeText(this@MapActivity, "GPS is already turned on", Toast.LENGTH_SHORT)
+                Toast.makeText(this@MapActivity, Constants.GPS_TURNED_ON, Toast.LENGTH_SHORT)
                     .show()
             } catch (e: ApiException) {
                 when (e.statusCode) {
@@ -218,7 +215,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
-        mMap.addMarker(MarkerOptions().position(defaultLocation!!).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(defaultLocation!!).title(Constants.SYDNEY))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation!!))
         val cameraPosition = CameraPosition.Builder()
             .target(defaultLocation!!)
@@ -240,7 +237,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Clears the previously touched position or current position
         mMap.clear()
         mMap.addMarker(
-            MarkerOptions().position(latLng).title("Current Location")
+            MarkerOptions().position(latLng).title(Constants.CURRENT_LOCATION)
         )!!
 
         // Animating to the touched position or current position

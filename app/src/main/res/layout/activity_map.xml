@@ -16,12 +16,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        layout="@layout/search_layout"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="20dp"
+        android:hint="Enter Address"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <!--    <TextView-->
     <!--        android:id="@+id/location"-->
