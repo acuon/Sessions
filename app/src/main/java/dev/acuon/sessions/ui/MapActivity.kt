@@ -2,21 +2,21 @@ package dev.acuon.sessions.ui
 
 import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.IntentSender
+import android.content.*
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.common.api.ApiException
@@ -137,10 +137,33 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
                             },
                             this
                         )
+                    } else {
+                        showRotationalDialogForPermission()
                     }
                 }
             }
         }
+    }
+
+    private fun showRotationalDialogForPermission() {
+        AlertDialog.Builder(this)
+            .setMessage(
+                Constants.PERMISSION_DENIED_MESSAGE
+            )
+            .setPositiveButton("Go TO SETTINGS") { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts(Constants.PACKAGE, packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+            .setNegativeButton("CANCEL") { dialog, _ ->
+                dialog.dismiss()
+            }.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {

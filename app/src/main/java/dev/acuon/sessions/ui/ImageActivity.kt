@@ -2,13 +2,16 @@ package dev.acuon.sessions.ui
 
 import android.Manifest.permission.*
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -136,6 +139,7 @@ class ImageActivity : AppCompatActivity(), View.OnClickListener {
                                 this
                             )
                         } else {
+                            showRotationalDialogForPermission()
                         }
                     }
                 }
@@ -157,11 +161,33 @@ class ImageActivity : AppCompatActivity(), View.OnClickListener {
                                 this
                             )
                         } else {
+                            showRotationalDialogForPermission()
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun showRotationalDialogForPermission() {
+        AlertDialog.Builder(this)
+            .setMessage(
+                Constants.PERMISSION_DENIED_MESSAGE
+            )
+            .setPositiveButton("Go TO SETTINGS") { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts(Constants.PACKAGE, packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+            .setNegativeButton("CANCEL") { dialog, _ ->
+                dialog.dismiss()
+            }.show()
     }
 
     private fun toast(str: String) {
