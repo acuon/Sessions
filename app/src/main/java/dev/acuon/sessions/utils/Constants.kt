@@ -1,6 +1,12 @@
 package dev.acuon.sessions.utils
 
 object Constants {
+
+    const val CAMERA_REQUEST_CODE = 1
+    const val STORAGE_REQUEST_CODE = 2
+    const val GPS_REQUEST_CODE = 3
+
+
     const val SYDNEY = "Marker in Sydney"
     const val CURRENT_LOCATION = "Current Location"
     const val GPS_TURNED_ON = "GPS is already turned on"
