@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#171717</color>
+    <color name="light_grey">#252525</color>
+    <color name="very_light_grey">#A6A6A6</color>
+    <color name="email_color">#74A2A8</color>
 </resources>
