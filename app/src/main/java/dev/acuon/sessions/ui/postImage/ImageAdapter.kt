@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import dev.acuon.sessions.R
 import dev.acuon.sessions.ui.postImage.model.PostImageItem
 import dev.acuon.sessions.ui.postdetails.model.CommentItem
@@ -43,7 +44,8 @@ class ImageAdapter(): RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
         fun setData(image: PostImageItem) {
             itemView.apply {
                 val imageView = findViewById<ImageView>(R.id.image)/*.setImageResource(R.drawable.ic_launcher_background)*/
-                Glide.with(this).load(image.url+".jpg").into(imageView)
+//                Glide.with(this).load(image.url+".jpg").into(imageView)
+                Picasso.get().load(image.url).into(imageView)
             }
         }
     }
