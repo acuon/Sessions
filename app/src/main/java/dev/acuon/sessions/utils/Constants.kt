@@ -1,5 +1,5 @@
 package dev.acuon.sessions.utils
 
 object Constants {
-    const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+    const val BASE_URL = "https://dog.ceo/api/"
 }

@@ -2,9 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/postImageActivity"
-        android:title="post image" />
-    <item
         android:id="@+id/postActivity"
         android:title="post activity" />
 

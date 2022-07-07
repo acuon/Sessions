@@ -14,9 +14,6 @@
         android:theme="@style/Theme.Sessions"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.ImageActivity"
-            android:exported="true"/>
-        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

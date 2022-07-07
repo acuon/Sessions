@@ -1,23 +1,19 @@
 package dev.acuon.sessions.data.api
 
-import dev.acuon.sessions.ui.postdetails.model.CommentItem
-import dev.acuon.sessions.ui.post.model.user.User
-import dev.acuon.sessions.ui.postImage.model.PostImageItem
-import dev.acuon.sessions.ui.post.model.Post
+import com.google.gson.JsonObject
+import dev.acuon.sessions.ui.model.image.BreedImageAll
+import dev.acuon.sessions.ui.model.image.BreedImageSingle
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface ApiService {
-    @GET("posts")
-    suspend fun getAllPosts(): Response<Post>
+    @GET("breeds/list/all")
+    suspend fun getAllBreeds(): Response<JsonObject>
 
-    @GET("photos")
-    suspend fun getPostImages(): Response<List<PostImageItem>>
+    @GET("breed/{breed_name}/images/random")
+    suspend fun getSingleImage(@Path("breed_name") breed_name: String): Response<BreedImageSingle>
 
-    @GET("users")
-    suspend fun getAllUsers(/*@Path("userId") userId: Int*/): Response<List<User>>
-
-    @GET("comments")
-    suspend fun getPostComments(@Query("postId") postId: Int): Response<List<CommentItem>>
+    @GET("breed/{breed_name}/images")
+    suspend fun getAllImages(@Path("breed_name") breed_name: String): Response<BreedImageAll>
 }

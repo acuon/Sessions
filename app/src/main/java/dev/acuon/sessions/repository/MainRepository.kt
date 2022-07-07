@@ -1,58 +1,56 @@
 package dev.acuon.sessions.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.JsonObject
 import dev.acuon.sessions.data.api.ApiService
-import dev.acuon.sessions.ui.postdetails.model.CommentItem
-import dev.acuon.sessions.ui.post.model.user.User
-import dev.acuon.sessions.ui.post.model.PostItem
-import dev.acuon.sessions.ui.postImage.model.PostImageItem
+import dev.acuon.sessions.ui.model.image.BreedImageAll
+import dev.acuon.sessions.ui.model.image.BreedImageSingle
+
 
 class MainRepository(
     private val apiService: ApiService
 ) {
-    private val postsLiveData = MutableLiveData<List<PostItem>>()
-    private val postCommentsLiveData = MutableLiveData<List<CommentItem>>()
-    private val postUsers = MutableLiveData<List<User>>()
-    private val postImages = MutableLiveData<List<PostImageItem>>()
+    private val breedList = MutableLiveData<List<String>>()
+    private val selectedBreedSingleImage = MutableLiveData<BreedImageSingle>()
+    private val selectedBreedAllImages = MutableLiveData<BreedImageAll>()
+    private val listOfBreeds by lazy { ArrayList<String>() }
 
-    val allPosts: LiveData<List<PostItem>>
-        get() = postsLiveData
+    val allBreeds: LiveData<List<String>>
+        get() = breedList
 
-    val allComments: LiveData<List<CommentItem>>
-        get() = postCommentsLiveData
+    val breedImage: LiveData<BreedImageSingle>
+        get() = selectedBreedSingleImage
 
-    val allUsers: LiveData<List<User>>
-        get() = postUsers
+    val breedImages: LiveData<BreedImageAll>
+        get() = selectedBreedAllImages
 
-    val allImages: LiveData<List<PostImageItem>>
-        get() = postImages
-
-    suspend fun getAllPosts() {
-        val result = apiService.getAllPosts()
+    suspend fun getAllBreeds() {
+        val result = apiService.getAllBreeds()
         if (result.body() != null) {
-            postsLiveData.postValue(result.body())
+            val message: JsonObject = result.body()!!.getAsJsonObject("message")
+            Log.d("repository", message.toString())
+            val keys: MutableSet<String>? = message.keySet()
+            val mutableIterator = keys!!.iterator()
+            while (mutableIterator.hasNext()) {
+                listOfBreeds.add(mutableIterator.next())
+            }
+            breedList.postValue(listOfBreeds)
         }
     }
 
-    suspend fun getAllComments(postId: Int) {
-        val result = apiService.getPostComments(postId)
+    suspend fun getSingleImage(breed: String) {
+        val result = apiService.getSingleImage(breed)
         if (result.body() != null) {
-            postCommentsLiveData.postValue(result.body())
+            selectedBreedSingleImage.postValue(result.body())
         }
     }
 
-    suspend fun getAllUsers() {
-        val result = apiService.getAllUsers()
+    suspend fun getAllImages(breed: String) {
+        val result = apiService.getAllImages(breed)
         if (result.body() != null) {
-            postUsers.postValue(result.body())
-        }
-    }
-
-    suspend fun getAllImages() {
-        val result = apiService.getPostImages()
-        if (result.body() != null) {
-            postImages.postValue(result.body())
+            selectedBreedAllImages.postValue(result.body())
         }
     }
 }
