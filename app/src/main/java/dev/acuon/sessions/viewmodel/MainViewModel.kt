@@ -27,7 +27,7 @@ class MainViewModel(private val repository: MainRepository, private val breed: S
                 viewModelScope.launch(Dispatchers.IO) {
                     repository.getFiveRandomBreed()
                 }
-                delay(5000)
+                delay(3000)
             }
         }
     }
