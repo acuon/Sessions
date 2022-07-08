@@ -7,23 +7,32 @@
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/circular_shape.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/dot.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/dot_separator.xml" value="0.1735" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/edit_text_bg.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_comment.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_delete.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_favorite.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_iconmonstr_share_10.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_like.xml" value="0.1735" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_search.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/drawable/ic_share.xml" value="0.1735" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_image.xml" value="0.13632246376811594" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/activity_posts.xml" value="0.1453804347826087" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/comment_layout.xml" value="0.33" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_all_breeds.xml" value="0.22" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_blank.xml" value="0.1453804347826087" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_breed_images.xml" value="0.1453804347826087" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_comments.xml" value="0.22" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_posts.xml" value="0.22" />
-        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_random_breeds.xml" value="0.1453804347826087" />
-        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/image_layout.xml" value="0.2" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_random_breeds.xml" value="0.5" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/fragment_temporary.xml" value="0.1453804347826087" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/image_item_layout.xml" value="0.13632246376811594" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/image_layout.xml" value="0.16" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/item_layout.xml" value="0.13632246376811594" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/post_layout.xml" value="0.1453804347826087" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/layout/posts_layout.xml" value="0.22" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/random_breed_item_layout.xml" value="0.1453804347826087" />
+        <entry key="..\:/android temp/Sessions/app/src/main/res/layout/random_image_item_layout.xml" value="0.25" />
         <entry key="..\:/android temp/Sessions/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
       </map>
     </option>

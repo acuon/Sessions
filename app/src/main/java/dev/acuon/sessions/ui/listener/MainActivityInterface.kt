@@ -5,4 +5,5 @@ import androidx.fragment.app.Fragment
 interface MainActivityInterface {
     fun openFragment(fragment: Fragment)
     fun progressBar(boolean: Boolean)
+    fun setFragmentName(name: String)
 }
