@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sessions</string>
+    <string name="this_is_main_activity">This is Main Activity</string>
+    <string name="this_is_second_activity">This is Second Activity</string>
+    <string name="this_is_third_activity">This is Third Activity</string>
 </resources>

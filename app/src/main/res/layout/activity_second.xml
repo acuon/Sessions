@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="This is Second Activity"
+        android:text="@string/this_is_second_activity"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
